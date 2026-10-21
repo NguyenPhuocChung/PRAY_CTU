@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#176b45" />
+    <title>CTU PRAY — Điều ước của sinh viên CTU</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --g: #176b45;
+        --g2: #258b58;
+        --cream: #fffdf5;
+        --line: #d9e6d9;
+        --text: #284337;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body,
+      input,
+      textarea,
+      button {
+        font-family: "Be Vietnam Pro", Arial, Helvetica, sans-serif;
+      }
+      body {
+        margin: 0;
+        background: #fff;
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .top {
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #e7eee7;
+        background: #fff;
+        gap: 10px;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 24px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .logo img {
+        display: block;
+        width: 54px;
+        height: 54px;
+        object-fit: contain;
+      }
+
+      .brand {
+        color: #176b43;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        line-height: 1.25;
+      }
+
+      .brand small {
+        display: block;
+        margin-top: 4px;
+        color: #527563;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+      }
+      main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 18px 20px 40px;
+        text-align: center;
+      }
+      .intro {
+        font-size: 13px;
+        color: #718477;
+        margin: 5px 0 0;
+      }
+      .stage {
+        height: 390px;
+        max-width: 920px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 50% 45%, #f6faf5 0, #fff 67%);
+        border-bottom: 7px solid transparent;
+        border-image: repeating-linear-gradient(
+            90deg,
+            #c68a42 0 7px,
+            #f0d7a8 7px 11px
+          )
+          7;
+      }
+      .petals {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .petal {
+        position: absolute;
+        width: 9px;
+        height: 15px;
+        border-radius: 80% 15% 80% 15%;
+        background: #f2a7bd;
+        opacity: 0.7;
+        animation: fall linear infinite;
+      }
+      .petal:nth-child(1) {
+        left: 10%;
+        animation-duration: 8s;
+        animation-delay: -3s;
+      }
+      .petal:nth-child(2) {
+        left: 24%;
+        animation-duration: 10s;
+        animation-delay: -7s;
+      }
+      .petal:nth-child(3) {
+        left: 76%;
+        animation-duration: 9s;
+        animation-delay: -4s;
+      }
+      .petal:nth-child(4) {
+        left: 89%;
+        animation-duration: 11s;
+        animation-delay: -6s;
+      }
+      .petal:nth-child(5) {
+        left: 65%;
+        animation-duration: 8s;
+        animation-delay: -2s;
+      }
+      @keyframes fall {
+        0% {
+          top: -25px;
+          transform: translateX(0) rotate(0);
+        }
+        100% {
+          top: 100%;
+          transform: translateX(70px) rotate(420deg);
+        }
+      }
+      .gate {
+        position: absolute;
+        width: min(390px, 78vw);
+        height: 330px;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+      }
+      .roof {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        width: 100%;
+        height: 62px;
+        background: #2d7b4b;
+        clip-path: polygon(
+          0 80%,
+          8% 49%,
+          18% 49%,
+          28% 0,
+          72% 0,
+          82% 49%,
+          92% 49%,
+          100% 80%,
+          94% 100%,
+          6% 100%
+        );
+        filter: drop-shadow(0 4px 1px #b8cfae);
+      }
+      .roof:after {
+        content: "";
+        position: absolute;
+        inset: 8px 15px;
+        background: repeating-linear-gradient(
+          0deg,
+          #d9a35b 0 7px,
+          #f0d09a 7px 11px
+        );
+        clip-path: polygon(
+          0 80%,
+          8% 49%,
+          18% 49%,
+          28% 0,
+          72% 0,
+          82% 49%,
+          92% 49%,
+          100% 80%,
+          94% 100%,
+          6% 100%
+        );
+      }
+      .beam {
+        position: absolute;
+        top: 80px;
+        left: 12%;
+        right: 12%;
+        height: 9px;
+        background: #c27b42;
+        border: 2px solid #e2b77d;
+      }
+      .pillar {
+        position: absolute;
+        top: 78px;
+        bottom: 20px;
+        width: 19px;
+        background: #e8f2df;
+        border: 4px solid #347e4c;
+        box-shadow: inset 0 0 0 2px #fff;
+      }
+      .pillar.l {
+        left: 14%;
+      }
+      .pillar.r {
+        right: 14%;
+      }
+      .sign {
+        font-family: "Be Vietnam Pro", Arial, sans-serif;
+        position: absolute;
+        top: 92px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 17px;
+        background: #fffdf3;
+        border: 1px solid #b7d4b6;
+        color: var(--g);
+        font-weight: 900;
+        font-size: 14px;
+        letter-spacing: 2px;
+        white-space: nowrap;
+      }
+      .inner {
+        position: absolute;
+        left: 18%;
+        right: 18%;
+        top: 143px;
+        bottom: 21px;
+        background: linear-gradient(#fffef6, #f5efd9);
+        border: 3px solid #b87943;
+        box-shadow: inset 0 0 0 4px #f1d8a5;
+      }
+      .inner:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 14px;
+        background: repeating-linear-gradient(
+          90deg,
+          #d8ad6e 0 44px,
+          #fff1cf 44px 48px
+        );
+      }
+      .plaque {
+        font-family: "Be Vietnam Pro", Arial, sans-serif;
+        position: absolute;
+        left: 50%;
+        top: 153px;
+        transform: translateX(-50%);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: var(--g);
+        white-space: nowrap;
+      }
+      .plant {
+        position: absolute;
+        bottom: 35px;
+        font-size: 39px;
+        z-index: 2;
+      }
+      .plant.l {
+        left: 17%;
+      }
+      .plant.r {
+        right: 17%;
+      }
+      .burner {
+        position: absolute;
+        left: 50%;
+        bottom: 22px;
+        transform: translateX(-50%);
+        width: 92px;
+        height: 112px;
+        z-index: 4;
+        transition: transform 0.6s;
+      }
+      .bowl {
+        position: absolute;
+        bottom: 0;
+        left: 8px;
+        width: 76px;
+        height: 40px;
+        border-radius: 8px 8px 23px 23px;
+        background: linear-gradient(90deg, #a66b24, #e8bb57, #9b5f1f);
+        border: 3px solid #9d6428;
+        box-shadow: inset 0 4px 4px #ffe3a0;
+      }
+      .leg {
+        position: absolute;
+        bottom: -7px;
+        left: 22px;
+        width: 9px;
+        height: 16px;
+        background: #b77c2f;
+        border-radius: 0 0 4px 4px;
+      }
+      .leg.r {
+        left: 61px;
+      }
+      .handle {
+        position: absolute;
+        bottom: 20px;
+        width: 17px;
+        height: 26px;
+        border: 4px solid #b57a30;
+        border-radius: 50%;
+      }
+      .handle.l {
+        left: -2px;
+      }
+      .handle.r {
+        right: -2px;
+      }
+      .incense {
+        position: absolute;
+        bottom: 34px;
+        left: 45px;
+        height: 63px;
+        width: 4px;
+        background: #b98335;
+        transform: rotate(2deg);
+        border-radius: 3px;
+        transform-origin: bottom;
+      }
+      .ember {
+        position: absolute;
+        top: -4px;
+        left: -2px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ff8b45;
+        box-shadow: 0 0 12px 4px #ffb05b;
+        opacity: 0;
+      }
+      .smoke {
+        position: absolute;
+        bottom: 92px;
+        left: 37px;
+        width: 22px;
+        height: 44px;
+        border-radius: 50%;
+        border-left: 4px solid #a7afa6;
+        opacity: 0;
+        filter: blur(1px);
+      }
+      .smoke:after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 8px;
+        width: 17px;
+        height: 27px;
+        border-left: 3px solid #bdc6bb;
+        border-radius: 50%;
+      }
+      .stage.lit .burner {
+        transform: translateX(-50%) translateY(-5px);
+      }
+      .stage.lit .ember {
+        opacity: 1;
+      }
+      .stage.lit .smoke {
+        animation: smoking 2.5s ease-out infinite;
+      }
+      .stage.lit .petal {
+        animation-duration: 4s;
+      }
+      @keyframes smoking {
+        0% {
+          opacity: 0;
+          transform: translateY(8px) scale(0.7);
+        }
+        40% {
+          opacity: 0.7;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-35px) scale(1.4);
+        }
+      }
+      .form {
+        max-width: 500px;
+        margin: 14px auto 0;
+        padding: 0 12px;
+      }
+      .form input,
+      .form textarea {
+        display: block;
+        width: 100%;
+        border: 1px solid #bfc8bf;
+        border-radius: 4px;
+        background: #fff;
+        padding: 10px 12px;
+        font-size: 15px;
+        margin-bottom: 10px;
+        outline: none;
+        color: #304b3a;
+      }
+      .form input:focus,
+      .form textarea:focus {
+        border-color: var(--g);
+        box-shadow: 0 0 0 3px #176b4517;
+      }
+      .form textarea {
+        height: 108px;
+        resize: vertical;
+      }
+      .form button {
+        border: 0;
+        background: #25834e;
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+        padding: 12px 26px;
+        border-radius: 3px;
+        box-shadow: 0 3px 0 #145a37;
+      }
+      .form button:hover {
+        background: #176b45;
+      }
+      .note {
+        font-size: 11px;
+        color: #8a998e;
+        margin-top: 12px;
+      }
+      .sound {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        border: 1px solid #dce7dc;
+        background: #ffffffdc;
+        color: var(--g);
+        border-radius: 20px;
+        padding: 8px 11px;
+        font-size: 12px;
+        z-index: 5;
+      }
+      .sound[aria-pressed="true"] {
+        background: #e9f5ec;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: #173728b8;
+        display: none;
+        place-items: center;
+        padding: 20px;
+        z-index: 9;
+      }
+      .modal.show {
+        display: grid;
+      }
+      .dialog {
+        width: min(410px, 100%);
+        background: #fffdf5;
+        border: 1px solid #d6e4d6;
+        border-radius: 12px;
+        padding: 28px 24px;
+        text-align: center;
+        box-shadow: 0 20px 70px #0003;
+      }
+      .seal {
+        font-size: 35px;
+        color: #b98232;
+      }
+      .dialog h2 {
+        color: var(--g);
+        margin: 10px 0;
+      }
+      .dialog p {
+        line-height: 1.7;
+        color: #617569;
+        font-size: 14px;
+      }
+      .dialog button {
+        background: var(--g);
+        border: 0;
+        color: white;
+        border-radius: 5px;
+        padding: 11px 20px;
+        font-weight: bold;
+      }
+      .small {
+        font-size: 10px;
+        color: #91a094;
+        margin-top: 15px;
+      }
+
+      @media (max-width: 600px) {
+        .top {
+          height: 60px;
+        }
+        .stage {
+          height: 330px;
+        }
+        .gate {
+          transform: translateX(-50%) scale(0.82);
+          transform-origin: bottom center;
+        }
+        .intro {
+          line-height: 1.6;
+        }
+        .form {
+          margin-top: 12px;
+        }
+        .sound {
+          font-size: 11px;
+          padding: 7px 9px;
+        }
+      }
+      /* Thông báo nổi phía trên màn hình */
+      .toast-notice {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translate(-50%, -20px);
+        z-index: 99999;
+
+        width: max-content;
+        max-width: calc(100vw - 32px);
+        padding: 14px 22px;
+
+        background: rgba(255, 255, 255, 0.96);
+        color: #246b43;
+        border: 1px solid #cce8d5;
+        border-radius: 14px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+
+        font-size: 15px;
+        line-height: 1.5;
+        text-align: center;
+
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease,
+          visibility 0.3s ease;
+      }
+
+      .toast-notice.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, 0);
+      }
+    </style>
+  </head>
+  <audio id="templeBell" preload="auto">
+    <source src="sounds/1021.mp3" type="audio/mpeg" />
+  </audio>
+  <body>
+    <header class="top">
+      <a
+        class="logo"
+        href="https://www.ctu.edu.vn/"
+        target="_blank"
+        aria-label="Trang chủ Đại học Cần Thơ"
+      >
+        <img
+          src="https://www.ctu.edu.vn/images/upload/logo.png"
+          alt="Logo Đại học Cần Thơ"
+        />
+      </a>
+
+      <div class="brand">
+        CTU PRAY
+        <small>ĐẠI HỌC CẦN THƠ</small>
+      </div>
+    </header>
+    <main>
+      <p class="intro">Gửi gắm một điều ước, thắp lên một niềm hy vọng.</p>
+      <section class="stage" id="stage" aria-label="Cổng điều ước CTU">
+        <div class="petals">
+          <i class="petal"></i><i class="petal"></i><i class="petal"></i
+          ><i class="petal"></i><i class="petal"></i>
+        </div>
+        <div class="gate">
+          <div class="roof"></div>
+          <div class="beam"></div>
+          <div class="pillar l"></div>
+          <div class="pillar r"></div>
+          <div class="sign">ĐẠI HỌC CẦN THƠ</div>
+          <div class="inner"></div>
+          <div class="plaque">CTU · WISH GATE</div>
+          <div class="plant l">🌿</div>
+          <div class="plant r">🌱</div>
+          <div class="burner">
+            <div class="smoke"></div>
+            <div class="incense"><div class="ember"></div></div>
+            <div class="handle l"></div>
+            <div class="handle r"></div>
+            <div class="bowl"></div>
+            <div class="leg"></div>
+            <div class="leg r"></div>
+          </div>
+        </div>
+      </section>
+      <form class="form" id="wishForm">
+        <input
+          id="email"
+          type="email"
+          placeholder="Mail của bạn..."
+          autocomplete="email"
+        />
+        <textarea
+          id="wish"
+          maxlength="500"
+          required
+          placeholder="Mong muốn của bạn..."
+        ></textarea>
+        <button type="submit">THẮP HƯƠNG</button>
+        <p class="note">
+          Điều ước của bạn được trân trọng. Đây là bản demo, chưa gửi dữ liệu
+          lên máy chủ.
+        </p>
+      </form>
+    </main>
+    <div
+      class="modal"
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="title"
+    >
+      <div class="dialog">
+        <div class="seal">✦</div>
+        <h2 id="title">Điều ước đã được gửi</h2>
+        <p>
+          Mong điều tốt lành sẽ đến với bạn.<br />Hãy giữ niềm tin và tiếp tục
+          cố gắng nhé.
+        </p>
+        <button id="close">Đóng</button>
+        <div class="small">CTU PRAY · ĐẠI HỌC CẦN THƠ</div>
+      </div>
+    </div>
+
+    <script>
+      const GOOGLE_APPS_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbxUEOXHhuHGd9V1yvLhuLzzuQbxU9rLaF3Gab-9DoUKUFO27NmdF0fWD-gKV0T6z142/exec";
+
+      const stage = document.getElementById("stage");
+      const form = document.getElementById("wishForm");
+      const templeBell = document.getElementById("templeBell");
+
+      let toastTimer;
+
+      // Tạo thông báo phía trên, không dùng modal.
+      const toast = document.createElement("div");
+      toast.className = "toast-notice";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      document.body.appendChild(toast);
+
+      function showToast(message, duration = 3500) {
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove("show");
+        }, duration);
+      }
+
+      function playBell() {
+        if (!templeBell) return;
+
+        templeBell.currentTime = 0;
+        templeBell.play().catch((error) => {
+          console.warn("Không thể phát tiếng chuông:", error);
+        });
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const wish = document.getElementById("wish").value.trim();
+
+        if (!wish) {
+          document.getElementById("wish").focus();
+          showToast("Bạn hãy viết điều ước trước nhé.");
+          return;
+        }
+
+        if (!GOOGLE_APPS_SCRIPT_URL.endsWith("/exec")) {
+          showToast("Website chưa được cấu hình Google Sheets.");
+          return;
+        }
+
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.textContent;
+
+        btn.disabled = true;
+        btn.textContent = "ĐANG THẮP HƯƠNG…";
+
+        // Giữ giao diện nhang cháy.
+        stage.classList.add("lit");
+        playBell();
+
+        try {
+          const body = new URLSearchParams();
+          body.set("email", email);
+          body.set("wish", wish);
+          body.set("source", "CTU PRAY");
+
+          await fetch(GOOGLE_APPS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body,
+          });
+
+          showToast("🪷 Đã gửi điều ước. Chúc bạn bình an!", 4000);
+
+          // Xóa nội dung nhập nhưng không tắt hiệu ứng nhang cháy.
+          form.reset();
+
+          // Không mở modal, không xóa class "lit".
+        } catch (error) {
+          console.error("Lỗi gửi điều ước:", error);
+          showToast(
+            "Không thể gửi điều ước. Vui lòng kiểm tra kết nối mạng.",
+            4500,
+          );
+
+          // Vẫn giữ hiệu ứng nhang cháy.
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      });
+    </script>
+  </body>
+</html>
